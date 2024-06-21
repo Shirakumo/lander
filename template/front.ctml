@@ -3,11 +3,21 @@
   <head>
     <meta charset="utf-8"/>
     <title><c:s>title</c:s></title>
+    <meta name="description" lquery="(attr :content description)" />
     <link rel="stylesheet" href="../static/lander.css" @href="/static/lander/lander.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="api-base" @href="/api/lander/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow, noai, noimageai">
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lander" lquery='(attr :content title)'/>
+    <meta property="og:title" lquery='(attr :content title)' />
+    <meta property="og:description" lquery='(attr :content description)' />
+    <meta property="og:content" lquery='(attr :content description)' />
+    <c:when test="image">
+      <meta property="og:image" lquery='(attr :content image)' />
+      <meta property="twitter:image" lquery='(attr :content image)' />
+    </c:when>
   </head>
   <body>
     <article class="lander" id="top">

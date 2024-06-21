@@ -34,7 +34,10 @@
                                               for i from 1 by 2
                                               do (setf (panel-order panel) i)
                                               collect panel)))
-         (result (r-clip:process (@template "front.ctml") :panels panels :title (config :title))))
+         (result (r-clip:process (@template "front.ctml") :panels panels
+                                                          :title (config :title)
+                                                          :description (config :description)
+                                                          :image (config :image))))
     (handler-bind ((plump:invalid-xml-character #'abort)
                    (plump:discouraged-xml-character #'muffle-warning))
       (let ((plump:*tag-dispatchers* plump:*html-tags*))
@@ -51,6 +54,8 @@
 (define-trigger startup ()
   (defaulted-config (list (make-panel :title "Hello!" :icon "fa-hand-sparkles" :content "Welcome to the lander page")) :panels)
   (defaulted-config "Lander" :title)
+  (defaulted-config "Landing page portal" :description)
+  (defaulted-config NIL :image)
   (update-panels))
 
 (define-page lander "/" ()
