@@ -30,8 +30,8 @@
  (a.edit
   :opacity 0.1
   :position fixed
-  :padding 0.25em
   :right 0 :bottom 0
+  :width 1.5em :height 1.5em
   :background (hex 505050)
   :color (hex 151515)
   ((:parent :before)
@@ -39,17 +39,17 @@
    :width 0 :height 0
    :position absolute
    :right 1.5em :bottom 0
-   :border-top 2em solid transparent
-   :border-left 2em solid transparent
-   :border-bottom 2em solid (hex 505050))
+   :border-top 1.5em solid transparent
+   :border-left 1.5em solid transparent
+   :border-bottom 1.5em solid (hex 505050))
   ((:parent :after)
    :content ""
    :width 0 :height 0
    :position absolute
    :right 0 :bottom 1.5em
-   :border-top 2em solid transparent
-   :border-left 2em solid transparent
-   :border-bottom 2em solid (hex 505050))
+   :border-top 1.5em solid transparent
+   :border-left 1.5em solid transparent
+   :border-bottom 1.5em solid (hex 505050))
   ((:parent :hover)
    :opacity 1.0))
  (>header

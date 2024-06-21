@@ -30,7 +30,7 @@
             <c:when test="content">
               <c:splice lquery="(html (lander::render-content content))" />
               <c:when test="link">
-                <a class="link" lquery="(attr :href link)"><i class="fas fa-fw fa-link"></i></a>
+                <a class="link" lquery="(attr :href link)"><i class="fas fa-fw fa-up-right-from-square"></i></a>
               </c:when>
             </c:when>
           </section>
@@ -41,6 +41,5 @@
       </footer>
       <a class="edit" @href="/edit" title="Edit"><i class="fas fa-fw fa-edit"></i></a>
     </article>
-    <script type="text/javascript" src="../static/lander.js" @src="/static/lander/lander.js"></script>
   </body>
 </html>
