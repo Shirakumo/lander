@@ -76,6 +76,7 @@
    :border-radius 0.5em
    :background (hex 303030)
    :overflow hidden
+   :position relative
    ((:parent (:and :hover (:not .transparent)))
     :background (hex 505050)
     :box-shadow 0 0 1em (hex 505050)
@@ -108,6 +109,31 @@
         :overflow hidden
         :text-overflow ellipsis
         :text-decoration none)))
+   (>a.link
+    :position absolute
+    :bottom 0 :right 0
+    :width 1.25em
+    :height 1.25em
+    :background (hex 202020)
+    :opacity 0.2
+    ((:parent :hover)
+     :opacity 1.0)
+    ((:parent :before)
+     :content ""
+     :width 0 :height 0
+     :position absolute
+     :right 1.25em :bottom 0
+     :border-top 1.25em solid transparent
+     :border-left 1.25em solid transparent
+     :border-bottom 1.25em solid (hex 202020))
+    ((:parent :after)
+     :content ""
+     :width 0 :height 0
+     :position absolute
+     :right 0 :bottom 1.25em
+     :border-top 1.25em solid transparent
+     :border-left 1.25em solid transparent
+     :border-bottom 1.25em solid (hex 202020)))
    (.content
     :width 100%
     :margin 0.5em 0

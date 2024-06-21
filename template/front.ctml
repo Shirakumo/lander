@@ -29,6 +29,9 @@
             </header>
             <c:when test="content">
               <c:splice lquery="(html (lander::render-content content))" />
+              <c:when test="link">
+                <a class="link" lquery="(attr :href link)"><i class="fas fa-fw fa-link"></i></a>
+              </c:when>
             </c:when>
           </section>
         </c:splice>
