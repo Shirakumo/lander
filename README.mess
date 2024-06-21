@@ -1,0 +1,6 @@
+# About Lander
+This is a simple Radiance module to provide a landing page. It allows you to configure any number of "panels" which can provide blocks of text or link to various features on your site.
+
+The panels are easy to organise and style, and the page is cached on edit for fast serving. No database connection is required.
+
+The only permission this system offers is ``lander``. Anyone with the permission can edit the landing page.
