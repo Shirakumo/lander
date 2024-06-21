@@ -162,3 +162,19 @@
    ((:parent .special) :background "linear-gradient(in hsl longer hue 45deg, red 0 0)"
                        :text-stroke 2px black
                        :paint-order stroke fill))))
+(:media (:max-width 800px)
+        (body
+         :font-size 12pt)
+        (.lander
+         (>main
+          (.panel
+           :margin 0.2em
+           ((:parent .half) :width 100%)
+           ((:parent .third) :width 100%)
+           ((:parent .quarter) :width 100%)))))
+
+(:media (:min-width 2000px)
+        (body
+         :font-size 24pt)
+        (.lander
+         :max-width 1680px))
