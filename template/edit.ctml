@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Lander</title>
+    <link rel="stylesheet" href="../static/lander.css" @href="/static/lander/lander.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="api-base" @href="/api/lander/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow, noai, noimageai">
+  </head>
+  <body>
+    <form class="lander" id="top" method="post" @action="/api/lander/update">
+      <header>
+        <input type="text" name="title" class="title" lquery="(val title)">
+      </header>
+      <main>
+        <c:splice iterate="panels">
+          <section class="panel" lquery="(data :order order) (add-class style)">
+            <header>
+              <input type="text" list="icons" class="icon" name="icon[]" lquery="(val icon)"
+                     placeholder="icon">
+              <input type="text" name="title[]" class="title" lquery="(val title)"
+                     placeholder="Title">
+            </header>
+            <textarea name="content[]" class="content" lquery="(text content)"
+                      placeholder="Content..."></textarea>
+            <nav>
+              <input type="url" name="link[]" class="link" lquery="(val link)"
+                     placeholder="http://....">
+              <input type="text" name="style[]" class="style" list="styles" multiple lquery="(val style)"
+                     placeholder="styles">
+              <input type="number" name="order[]" class="order" lquery="(val order)"
+                     placeholder="N">
+            </nav>
+          </section>
+        </c:splice>
+        <input type="submit" value="Save">
+      </main>
+      <footer>
+        Running on <a href="https://github.com/Shirakumo/lander">Lander</a>
+      </footer>
+    </form>
+    <datalist id="icons">
+      <c:splice lquery='(html (template-file "icons.html" "LANDER"))'>
+    </datalist>
+    <datalist id="styles">
+      <option value="full"></option>
+      <option value="half"></option>
+      <option value="third"></option>
+      <option value="quarter"></option>
+      <option value="left"></option>
+      <option value="right"></option>
+      <option value="highlight"></option>
+      <option value="alert"></option>
+      <option value="special"></option>
+    </datalist>
+    <script type="text/javascript" src="../static/lander.js" @src="/static/lander/lander.js"></script>
+  </body>
+</html>

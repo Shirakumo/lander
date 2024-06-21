@@ -1,0 +1,94 @@
+(body
+ :margin 0
+ :padding 0
+ :background (hex 151515)
+ :color (hex EFEFEF)
+ :font-family "sans-serif"
+ :font-size 14pt)
+(.lander
+ :margin 0 auto
+ :max-width 1024px
+ :display flex
+ :flex-direction column
+ (a :text-decoration none
+    :color (hex FFFFFF)
+    :cursor pointer)
+ ((:and a :hover) :text-decoration underline)
+ ((:or input textarea) 
+  :box-sizing border-box
+  :background (rgba 0 0 0 0.2)
+  :border none
+  :color inherit)
+ (input[type=submit]
+  :background (rgba 255 0 0 0.5)
+  :width 90%
+  :margin 1em
+  :font-size inherit
+  :cursor pointer
+  ((:parent :hover)
+   :background (rgba 255 0 0 1.0)))
+ (>header
+  :text-align center
+  (.title
+   :margin 0
+   :font-size 3em
+   :font-weight bold
+   :text-align center))
+ (>footer
+  :color (hex A0A0A0)
+  :margin 2em 0
+  :font-size 0.8em
+  :text-align center
+  :opacity 0.5)
+ (>main
+  :display flex
+  :flex-wrap wrap
+  :justify-content center
+  (.panel
+   :padding 0.8em
+   :margin 1em
+   :border 0.2em solid transparent
+   :border-radius 0.5em
+   :background (hex 303030)
+   :overflow hidden
+   (>header
+    :display flex
+    :align-items center
+    (.icon
+     :font-size 2em
+     :width 2em
+     :margin-right 0.5em)
+    (.title
+     :flex-grow 1
+     :font-size 2em
+     :overflow hidden)
+    (h2
+     :margin 0
+     (a :display block
+        :white-space nowrap
+        :overflow hidden
+        :text-overflow ellipsis)))
+   (.content
+    :width 100%
+    :margin 0.5em 0
+    :font-size inherit
+    :font-family inherit)
+   (nav
+    :display flex
+    :flex-wrap wrap
+    (input :margin 0.2em 0
+           :font-size inherit)
+    (.link :width 100%)
+    (.style :flex-grow 1 :width 0)
+    (.order :width 3em :text-align center))
+   ((:parent .full) :width 100%)
+   ((:parent .half) :width (calc (- 50% 3.8em)))
+   ((:parent .third) :width (calc (- 33% 3.8em)))
+   ((:parent .quarter) :width (calc (- 25% 3.8em)))
+   ((:parent .right) :margin-left auto)
+   ((:parent .left) :margin-right auto)
+   ((:parent .highlight) :border-color (hex FAA000))
+   ((:parent .alert) :background (hex AA0000))
+   ((:parent .special) :background "linear-gradient(in hsl longer hue 45deg, red 0 0)"
+                       :text-stroke 2px black
+                       :paint-order stroke fill))))
