@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>Lander</title>
+    <title><c:s>title</c:s> - Edit</title>
     <link rel="stylesheet" href="../static/lander.css" @href="/static/lander/lander.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="api-base" @href="/api/lander/" />
@@ -40,6 +40,7 @@
       <footer>
         Running on <a href="https://github.com/Shirakumo/lander">Lander</a>
       </footer>
+      <a class="edit" @href="/" title="View"><i class="fas fa-fw fa-eye"></i></a>
     </form>
     <datalist id="icons">
       <c:splice lquery='(html (template-file "icons.html" "LANDER"))'>
@@ -54,6 +55,10 @@
       <option value="highlight"></option>
       <option value="alert"></option>
       <option value="special"></option>
+      <option value="transparent"></option>
+      <option value="center"></option>
+      <option value="notitle"></option>
+      <option value="icon"></option>
     </datalist>
     <script type="text/javascript" src="../static/lander.js" @src="/static/lander/lander.js"></script>
   </body>

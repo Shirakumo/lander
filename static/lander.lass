@@ -10,7 +10,7 @@
  :max-width 1024px
  :display flex
  :flex-direction column
- (a :text-decoration none
+ (a :text-decoration underline
     :color (hex FFFFFF)
     :cursor pointer)
  ((:and a :hover) :text-decoration underline)
@@ -27,10 +27,35 @@
   :cursor pointer
   ((:parent :hover)
    :background (rgba 255 0 0 1.0)))
+ (a.edit
+  :opacity 0.1
+  :position fixed
+  :padding 0.25em
+  :right 0 :bottom 0
+  :background (hex 505050)
+  :color (hex 151515)
+  ((:parent :before)
+   :content ""
+   :width 0 :height 0
+   :position absolute
+   :right 1.5em :bottom 0
+   :border-top 2em solid transparent
+   :border-left 2em solid transparent
+   :border-bottom 2em solid (hex 505050))
+  ((:parent :after)
+   :content ""
+   :width 0 :height 0
+   :position absolute
+   :right 0 :bottom 1.5em
+   :border-top 2em solid transparent
+   :border-left 2em solid transparent
+   :border-bottom 2em solid (hex 505050))
+  ((:parent :hover)
+   :opacity 1.0))
  (>header
   :text-align center
   (.title
-   :margin 0
+   :margin 0.25em 0
    :font-size 3em
    :font-weight bold
    :text-align center))
@@ -51,20 +76,27 @@
    :border-radius 0.5em
    :background (hex 303030)
    :overflow hidden
+   ((:parent (:and :hover (:not .transparent)))
+    :background (hex 505050)
+    :box-shadow 0 0 1em (hex 505050)
+    :color (hex FFFFFF))
    (>header
     :display flex
     :align-items center
     (.icon
      :font-size 1em
      :font-weight normal
-     :width 2em
-     :margin-right 0.5em
+     :width 1.25em
      :text-align center)
     (i.icon
      :font-family "\"FontAwesome\", \"Font Awesome 6 Brands\""
-     :font-style normal)
+     :font-style normal
+     :display inline-block)
     (input.icon
-     :font-size 2em)
+     :font-size 2em
+     :width 2em)
+    (input.title
+     :width 0)
     (.title
      :flex-grow 1
      :font-size 2em
@@ -74,7 +106,8 @@
      (a :display block
         :white-space nowrap
         :overflow hidden
-        :text-overflow ellipsis)))
+        :text-overflow ellipsis
+        :text-decoration none)))
    (.content
     :width 100%
     :margin 0.5em 0
@@ -96,6 +129,10 @@
    ((:parent .left) :margin-right auto)
    ((:parent .highlight) :border-color (hex FAA000))
    ((:parent .alert) :background (hex AA0000))
+   ((:parent .transparent) :background transparent)
+   ((:parent .notitle) (header :display none))
+   ((:parent .center) :text-align center)
+   ((:parent .icon) (header (span :display none)))
    ((:parent .special) :background "linear-gradient(in hsl longer hue 45deg, red 0 0)"
                        :text-stroke 2px black
                        :paint-order stroke fill))))

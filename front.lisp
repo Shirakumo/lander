@@ -81,7 +81,7 @@
                                   :order (or (parse-integer order :junk-allowed T) most-positive-fixnum)
                                   :style (or* style))))
   (update-panels)
-  (redirect #@"/"))
+  (redirect #@"/edit"))
 
 (define-api lander/panel/add (title &optional icon link content order style) (:access (perm lander))
   (when (panel title)
