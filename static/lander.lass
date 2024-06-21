@@ -46,7 +46,7 @@
   :justify-content center
   (.panel
    :padding 0.8em
-   :margin 1em
+   :margin 0.5em
    :border 0.2em solid transparent
    :border-radius 0.5em
    :background (hex 303030)
@@ -55,9 +55,16 @@
     :display flex
     :align-items center
     (.icon
-     :font-size 2em
+     :font-size 1em
+     :font-weight normal
      :width 2em
-     :margin-right 0.5em)
+     :margin-right 0.5em
+     :text-align center)
+    (i.icon
+     :font-family "\"FontAwesome\", \"Font Awesome 6 Brands\""
+     :font-style normal)
+    (input.icon
+     :font-size 2em)
     (.title
      :flex-grow 1
      :font-size 2em

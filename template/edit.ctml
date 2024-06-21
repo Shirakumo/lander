@@ -15,7 +15,7 @@
         <input type="text" name="title" class="title" lquery="(val title)">
       </header>
       <main>
-        <c:splice iterate="panels">
+        <c:splice iterate="(append panels '(()))">
           <section class="panel" lquery="(data :order order) (add-class style)">
             <header>
               <input type="text" list="icons" class="icon" name="icon[]" lquery="(val icon)"

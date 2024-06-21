@@ -31,7 +31,7 @@
 
 (defun update-panels (&key (panels (config :panels)) (output (index-cache-file)))
   (let* ((panels (setf (config :panels) (loop for panel in (sort panels #'panel<)
-                                              for i from 0 by 2
+                                              for i from 1 by 2
                                               do (setf (panel-order panel) i)
                                               collect panel)))
          (result (r-clip:process (@template "front.ctml") :panels panels :title (config :title))))
@@ -65,7 +65,7 @@
                     :title (config :title)))
 
 (define-api lander/update (&optional title title[] icon[] link[] content[] order[] style[]) (:access (perm lander))
-  (when title (setf (config :title) title))
+  (setf (config :title) (or* title))
   (setf (config :panels)
         (loop for title in title[]
               for icon in icon[]
@@ -78,7 +78,7 @@
                                   :icon (or* icon)
                                   :link (or* link)
                                   :content (or* content)
-                                  :order (parse-integer order)
+                                  :order (or (parse-integer order :junk-allowed T) most-positive-fixnum)
                                   :style (or* style))))
   (update-panels)
   (redirect #@"/"))

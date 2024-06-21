@@ -11,17 +11,21 @@
   </head>
   <body>
     <article class="lander" id="top">
-      <header>
-        <h1 class="title" lquery="(text title)">Lander</h1>
-      </header>
+      <c:when test="title">
+        <header>
+          <h1 class="title" lquery="(text title)">Lander</h1>
+        </header>
+      </c:when>
       <main>
         <c:splice iterate="panels">
           <section class="panel" lquery="(data :order order) (add-class style)">
             <header>
-              <c:when test="icon">
-                <i class="icon fas fa-fw" lquery="(add-class icon)"></i>
-              </c:when>
-              <h2 class="title"><a lquery="(attr :href link) (text title)">TITLE</a></h2>
+              <h2 class="title"><a lquery="(attr :href link) (text title)">
+                <c:when test="icon">
+                  <i class="icon" lquery="(add-class icon)"></i>
+                </c:when>
+                TITLE
+              </a></h2>
             </header>
             <c:when test="content">
               <c:splice lquery="(html (lander::render-content content))" />
