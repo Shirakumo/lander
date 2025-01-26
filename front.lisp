@@ -56,7 +56,7 @@
   (defaulted-config "Lander" :title)
   (defaulted-config "Landing page portal" :description)
   (defaulted-config NIL :image)
-  (update-panels))
+  (purge-cache))
 
 (define-page lander "/" ()
   (let ((path (index-cache-file)))
