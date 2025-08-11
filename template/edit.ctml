@@ -38,7 +38,7 @@
         <input type="submit" value="Save">
       </main>
       <footer>
-        Running on <a href="https://github.com/Shirakumo/lander">Lander</a>
+        Running on <a href="https://shirakumo.org/project/lander">Lander</a>
       </footer>
       <a class="edit" @href="/" title="View"><i class="fas fa-fw fa-eye"></i></a>
     </form>

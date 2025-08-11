@@ -47,7 +47,7 @@
         </c:splice>
       </main>
       <footer>
-        Running on <a href="https://github.com/Shirakumo/lander">Lander</a>
+        Running on <a href="https://shirakumo.org/project/lander">Lander</a>
       </footer>
       <a class="edit" @href="/edit" title="Edit"><i class="fas fa-fw fa-edit"></i></a>
     </article>
